@@ -1154,7 +1154,7 @@ class InstagramScraper(object):
             merged = data
             with open(dst, 'r') as f:
                 file_data = json.load(f)
-                key = merged.keys()[0]
+                key = next(iter(merged.keys()), None)
                 if key in file_data:
                     merged[key] = file_data[key]
             self.save_json(merged, dst)
